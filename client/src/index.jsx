@@ -40,10 +40,9 @@ class App extends React.Component {
       // contentType: "application/json"
     })
       .then(data => {
-        console.log('DATA IN SEARCH', data)
+        //console.log('DATA IN SEARCH', data)
         //this.setState({repos: data})
         return this.getData()
-
       })
   }
 
