@@ -19,10 +19,10 @@ class App extends React.Component {
     $.ajax({
       type: "POST",
       url: '/repos',
-      data: JSON.stringify({ term }),
-      success: ()=>{console.log('ajax success')},
-      error: ()=>{console.log('ajax error')},
-      contentType: "application/json"
+      data: {term: term},
+      success: (response)=>{console.log('ajax success', response)},
+      error: (err)=>{console.log('ajax error', err)},
+      // contentType: "application/json"
     });
   }
 
