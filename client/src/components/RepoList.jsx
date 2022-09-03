@@ -9,8 +9,12 @@ const RepoList = (props) => (
     <ul>
       {props.repos.map((repo) =>
       <li key={repo.id}>
-          {repo.watchers}<br/>
-          {repo.name}
+      <b>Repo Name:</b> &nbsp;
+        <a href={repo.html_url} target="_blank">
+           {repo.name} <br/>
+        </a>
+          <b>Watchers:</b> &nbsp;
+          {repo.watchers}
       </li>)}
     </ul>
     </div>
