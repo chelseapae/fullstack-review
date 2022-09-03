@@ -21,7 +21,7 @@ let save = (repos) => {
   // This function should save a repo or repos to
   // the MongoDB
   repos.forEach((repo) => {
-    console.log('--------------------------------------------------------> REPO', repo)
+    //console.log('------------------------------------------------------> REPO', repo)
     var newRepo = new Repo({
       id: repo.id,
       name: repo.name,
@@ -33,13 +33,19 @@ let save = (repos) => {
       if (err) {
         console.log('Error with saving data to DB');
       } else {
-        console.log('Success with saving data to DB', data);
+        //console.log('Success with saving data to DB', data);
+        console.log('success')
       }
     });
   })
 }
 
+let get25repos = () => {
+    return Repo.find({}).sort({ 'watchers': -1 }).limit(25)
+}
+
 module.exports.save = save;
+module.exports.get25repos = get25repos;
 
 // let save = (repoInfo) => {
 //   // TODO: Your code here
