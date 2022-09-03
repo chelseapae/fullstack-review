@@ -33,15 +33,18 @@ let save = (repos) => {
       if (err) {
         console.log('Error with saving data to DB');
       } else {
-        //console.log('Success with saving data to DB', data);
-        console.log('success')
+        console.log('Success with saving data to DB', data);
+        // console.log('success')
       }
     });
   })
 }
 
 let get25repos = () => {
-    return Repo.find({}).sort({ 'watchers': -1 }).limit(25)
+    return Repo
+      .find({})
+      .sort({ 'watchers': -1 })
+      .limit(25)
 }
 
 module.exports.save = save;

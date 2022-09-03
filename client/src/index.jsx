@@ -13,6 +13,21 @@ class App extends React.Component {
     this.search = this.search.bind(this);
   }
 
+  componentDidMount() {
+    this.getData();
+  }
+
+  getData() {
+    $.ajax({
+      type: 'GET',
+      url: '/repos'
+    })
+    .then(data => {
+      console.log('DATA from client index.jsx', data);
+      this.setState({repos: data})
+    })
+  }
+
   search (term) {
     console.log(`${term} was searched`);
     // jQuery's ajax method to send a POST request to /repos
