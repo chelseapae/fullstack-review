@@ -38,7 +38,13 @@ class App extends React.Component {
       success: (response)=>{console.log('ajax success', response)},
       error: (err)=>{console.log('ajax error', err)},
       // contentType: "application/json"
-    });
+    })
+      .then(data => {
+        console.log('DATA IN SEARCH', data)
+        //this.setState({repos: data})
+        return this.getData()
+
+      })
   }
 
   render () {
